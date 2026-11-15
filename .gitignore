@@ -1,0 +1,30 @@
+# Exclude manuscript and compiled paper PDFs from public repository
+/main.tex
+/supplement.tex
+/refs.bib
+/sn-jnl.cls
+/sn-basic.bst
+/membrane_snp_main_2col.pdf
+/membrane_snp_supplement.pdf
+
+# macOS metadata
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.synctex.gz
+*.toc
+*.nav
+*.snm
+*.vrb

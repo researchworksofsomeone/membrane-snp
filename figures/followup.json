@@ -1,0 +1,260 @@
+{
+ "followup": [
+  {
+   "test": "F1",
+   "quantity": "MSNP - flat at 10% data (bits/spike)",
+   "verdict": "PASS",
+   "median": 0.0508,
+   "frac_positive": 1.0,
+   "wilcoxon_p": 6.103515625e-05,
+   "n_sessions": 14,
+   "per_session": [
+    0.0145,
+    0.0385,
+    0.022,
+    0.0143,
+    0.0071,
+    0.071,
+    0.0769,
+    0.0293,
+    0.063,
+    0.0205,
+    0.0933,
+    0.0774,
+    0.1883,
+    0.1031
+   ]
+  },
+  {
+   "test": "F2",
+   "quantity": "gain per rank, 1->6 minus 6->12 (bits/spike)",
+   "verdict": "PASS",
+   "median": 0.0033,
+   "frac_positive": 1.0,
+   "wilcoxon_p": 6.103515625e-05,
+   "n_sessions": 14,
+   "per_session": [
+    0.0026,
+    0.0034,
+    0.0021,
+    0.0027,
+    0.0033,
+    0.0034,
+    0.0033,
+    0.003,
+    0.0038,
+    0.0018,
+    0.0035,
+    0.0036,
+    0.0037,
+    0.0029
+   ]
+  },
+  {
+   "test": "F3",
+   "quantity": "relative channel drop with latent",
+   "verdict": "PASS",
+   "median": 0.053,
+   "frac_positive": 1.0,
+   "wilcoxon_p": 6.103515625e-05,
+   "n_sessions": 14,
+   "per_session": [
+    0.0508,
+    0.0828,
+    0.1631,
+    0.142,
+    0.0347,
+    0.0795,
+    0.0973,
+    0.0524,
+    0.0535,
+    0.1707,
+    0.046,
+    0.039,
+    0.0496,
+    0.0427
+   ]
+  },
+  {
+   "test": "F4",
+   "quantity": "within-region minus cross-system channel strength",
+   "verdict": "PASS",
+   "median": 1.3583,
+   "frac_positive": 1.0,
+   "wilcoxon_p": 0.000244140625,
+   "n_sessions": 12,
+   "per_session": [
+    0.973,
+    0.7198,
+    1.7284,
+    1.5897,
+    1.3011,
+    1.1504,
+    0.6829,
+    1.6732,
+    1.1085,
+    1.4798,
+    1.5931,
+    1.4156
+   ]
+  }
+ ],
+ "reported": {
+  "gap_25pct": {
+   "median": 0.0098,
+   "frac_positive": 0.714
+  },
+  "r90_interpolated": [
+   5.42,
+   4.12,
+   5.58,
+   5.89,
+   4.41,
+   4.79,
+   4.87,
+   4.74,
+   4.78,
+   5.89,
+   4.99,
+   4.2,
+   5.08,
+   4.7
+  ],
+  "r90_over_smaller_area": [
+   0.12,
+   0.109,
+   0.096,
+   0.31,
+   0.126,
+   0.184,
+   0.122,
+   0.093,
+   0.154,
+   0.101,
+   0.156,
+   0.145,
+   0.118,
+   0.174
+  ],
+  "r90_over_smaller_area_median": 0.124
+ },
+ "main_scoreboard": [
+  {
+   "hypothesis": "H1",
+   "test": "Rank needed for 90% of the best channel gain <= max(3, 10% of the median smaller-area size)",
+   "value": "r90 per session [6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6]",
+   "verdict": "FAIL",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H2",
+   "test": "MSNP beats flat at 10% and 25% data in >= 80% of sessions (Wilcoxon p < 0.01); gap shrinks with data; at 100% not worse by > 0.005",
+   "value": {
+    "0.1": 0.0508,
+    "0.25": 0.0098,
+    "0.5": -0.0016,
+    "1.0": -0.0075
+   },
+   "verdict": "FAIL",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H3",
+   "test": "Per-area MSNP advantage over flat (25% data) rises with the parameter ratio (pooled Spearman > 0, p < 0.05)",
+   "value": "rho=-0.04, p=0.670",
+   "verdict": "FAIL",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H4",
+   "test": "Split-half channel discrepancy vs training length: median log-log slope in [-0.65, -0.35]",
+   "value": "median slope -0.45 ([-0.32, -0.43, -0.53, -0.51, -0.29, -0.47, -0.4, -0.46, -0.47, -0.44])",
+   "verdict": "PASS",
+   "n_sessions": 10
+  },
+  {
+   "hypothesis": "H5",
+   "test": "HodgeRank vs anatomical level: per-session Spearman median >= 0.5 and > 0 (Wilcoxon p < 0.01)",
+   "value": "median rho 0.61, p=0.000",
+   "verdict": "PASS",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H6",
+   "test": "Hierarchy at 50% data agrees with 100% data: median Kendall tau >= 0.7",
+   "value": "median tau 0.77",
+   "verdict": "PASS",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H13",
+   "test": "Delay of channels out of VISp grows with the target's hierarchy level (median per-session Spearman > 0)",
+   "value": "median rho -0.09",
+   "verdict": "FAIL",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H14",
+   "test": "Impulse-response width grows with hierarchy level (median per-session Spearman > 0, Wilcoxon p < 0.05)",
+   "value": "median rho 0.00, p=0.410",
+   "verdict": "FAIL",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H7",
+   "test": "Hidden input tracks running: median max |corr(z, running speed)| >= 0.3",
+   "value": "median max|r| 0.27",
+   "verdict": "FAIL",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H8",
+   "test": "Latent cuts inter-area channel strength: median drop >= 20% in >= 80% of sessions",
+   "value": "median drop per session [0.1, 0.05, 0.14, 0.05, 0.03, 0.08, 0.04, 0.05, 0.05, 0.05, 0.04, 0.08, 0.17, 0.16]",
+   "verdict": "FAIL",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H9",
+   "test": "Fake part (flat k=0 minus flat k=K) is low rank: median top-K energy >= 0.5 and >= 2x Gaussian baseline",
+   "value": "median top-K energy 0.82 vs Gaussian 0.16",
+   "verdict": "PASS",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H10",
+   "test": "Channels add beyond a latent-only model when a whole area is held out: better in >= 80% of sessions (Wilcoxon p < 0.01)",
+   "value": "median gain 0.0320 bits/spike, p=0.000",
+   "verdict": "PASS",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H11",
+   "test": "Tree prior: tau=1 test bits >= tau=0 in >= 70% of sessions, and in the uniform fit within-region channels are stronger than cross-system ones",
+   "value": "tau=1 wins 14%; within>cross 100%",
+   "verdict": "FAIL",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H12",
+   "test": "Dale's law costs <= 2% of held-out bits/spike (median)",
+   "value": "median relative loss 0.017",
+   "verdict": "PASS",
+   "n_sessions": 14
+  },
+  {
+   "hypothesis": "H15",
+   "test": "(exploratory) Running changes VISp -> higher-area channel strength (report median log ratio run/still)",
+   "value": "median log(run/still) -2.60",
+   "verdict": "REPORT",
+   "n_sessions": 7
+  },
+  {
+   "hypothesis": "H16",
+   "test": "(exploratory) Inhibitory-assigned neurons have narrow waveforms (< 0.4 ms): odds ratio > 1.5",
+   "value": "odds ratio 1.86",
+   "verdict": "PASS",
+   "n_sessions": 14
+  }
+ ]
+}
